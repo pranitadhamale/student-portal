@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portal</title>
+</head>
+
+<body>
+<!-- RIGHT -->
+<div class="right">
+    <div class="bg-text">TASK<br>MANAGEMENT<br>SYSTEM</div>
+ <div class="box">
+    
+
+
+<!-- LOGIN -->
+<div id="loginForm" class="form active">
+    <h2>Student Login</h2>
+
+    <label>Email</label>
+    <input type="email" id="loginEmail" placeholder="Enter Email">
+
+    <label>Password</label>
+    <input type="password" id="loginPass" placeholder="Enter Password">
+
+    <!-- FIXED HERE -->
+    <div class="link" style="text-align:right; margin-top:-8px;">
+        <a href="#" onclick="showReset(); return false;">Forgot password?</a>
+    </div>
+
+    <div class="error" id="loginError"></div>
+
+    <button onclick="loginUser()">Login</button>
+
+    <div class="link">
+        Don't have an account?
+        <a onclick="showRegister()">Sign up</a>
+    </div>
+</div>
+
+<!-- REGISTER -->
+<div id="registerForm" class="form">
+    <h2>Create Account</h2>
+
+    <input type="text" id="name" placeholder="Enter full name">
+    <div class="error" id="nameError"></div>
+
+    <input type="email" id="email" placeholder="Enter email">
+    <div class="error" id="emailError"></div>
+
+    <input type="password" id="password" placeholder="Enter password">
+    <div class="error" id="passError"></div>
+
+    <input type="password" id="confirmPassword" placeholder="Confirm password">
+    <div class="error" id="confirmError"></div>
+
+    <button type="button" onclick="registerUser(event)">Register</button>
+
+    <div class="link">Already have an account?
+        <a onclick="showLogin()"> Login</a>
+    </div>
+</div>
+
+<!-- RESET -->
+<div id="resetForm" class="form">
+    <h2>Reset Password</h2>
+
+    <input type="email" id="resetEmail" placeholder="Enter your email">
+    <div class="error" id="resetEmailError"></div>
+
+    <input type="password" id="newPassword" placeholder="New password">
+    <div class="error" id="newPassError"></div>
+
+    <input type="password" id="confirmNewPassword" placeholder="Confirm new password">
+    <div class="error" id="confirmNewError"></div>
+
+    <button onclick="resetPassword()">Set Password</button>
+
+    <div class="link">
+        <a onclick="showLogin()">Back to Login</a>
+    </div>
+</div>
+
+</div>
+</div>
+<!-- DASHBOARD -->
+<div id="dashboard" style="display:none; width:100%; height:100vh;">
+
+    <!-- SIDEBAR -->
+    <div id="sidebarComponent"></div>
+
+    <!-- MAIN CONTENT -->
+    
+
+
+    <div class="main">
+      <h2>Welcome, Student</h2>
+    <!-- DASHBOARD SECTION -->
+    <div id="dashboardSection">
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Tasks</h3>
+            <p id="totalCount">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Completed</h3>
+            <p id="completedCount">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Pending</h3>
+            <p id="pendingCount">0</p>
+        </div>
+
+    </div>
+   </div>
+
+  <!-- TASK SECTION -->
+  <div id="taskSection" style="display:none;">
+    <div id="navbarComponent"></div>
+    
+    <div class="filter-buttons">
+    <button onclick="renderTasks('All')">All</button>
+    <button onclick="renderTasks('Pending')">Pending</button>
+    <button onclick="renderTasks('Completed')">Completed</button>
+    <button onclick="sortLatest()">Latest First</button>
+    </div>
+    <div id="emptyState" style="display:none; text-align:center; padding:20px;">
+    No tasks available
+    </div>
+    <div class="table-container">
+    <table id="taskTable">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="taskBody"></tbody>
+    </table>
+    </div>
+    <div style="margin-top:20px; display:flex; gap:10px; justify-content:center;">
+      <button onclick="prevPage()">Previous</button>
+      <button onclick="nextPage()">Next</button>
+      <span id="pageNo">page1</span>
+    </div>
+    </div>
+     
+    <!-- ✅ MODAL -->
+    <div id="modalComponent"></div>
+    <div id="loader" style="display:none; text-align:center; padding:20px;">
+    <h3>Loading...</h3>
+    </div>
+    <div id="errorBox" style="display:none; color:red; text-align:center; padding:10px;"></div>
+    
+    <div class="card">
+      <h3>Total Users</h3>
+      <p id="userCount">0</p>
+   </div>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
