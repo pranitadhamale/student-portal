@@ -1,4 +1,4 @@
-My project is a Task Management System.This system helps users manage daily tasks with authentication and role-based access.Users can register, login, create tasks, update tasks, delete tasks, search tasks and filter them.
+Task Management System helps users manage daily tasks with authentication and role-based access.Users can register, login, create tasks, update tasks, delete tasks, search tasks and filter them.
 Admin has additional access to monitor all users and tasks through an admin dashboard.
 
 -Tech Stack
